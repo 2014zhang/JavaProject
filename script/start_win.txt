@@ -1,4 +1,5 @@
 rem 文件需要用ANSI格式，UTF-8会乱码
+rem 参考：https://blog.csdn.net/qq_41489540/article/details/113377970
 set figureBedPath=D:\\NoteBook\\docker学习\\image
 set toDeletePath=D:\\NoteBook\\docker学习\\toDelete
 set ScanningDrive=D:\\NoteBook\\docker学习
