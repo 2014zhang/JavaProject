@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true" scanPeriod="60 seconds" debug="false">
+    <!-- 定义日志文件的输出路径 -->
+    <!-- <property name="USER_HOME" value="G:/log" /> -->
+
+    <!-- 输出到控制台 -->
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- 基于大小以及时间的轮转策略 -->
+    <!-- 参考：http://www.logback.cn/04%E7%AC%AC%E5%9B%9B%E7%AB%A0Appenders.html -->
+    <appender name="ROLLING" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <!-- 要写入文件的名称。如果文件不存在，则新建。 -->
+        <!-- <file>${USER_HOME}/logback.log</file> -->
+        <file>logback.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>%d{yyyyMMdd}/logback-%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+            <maxFileSize>100KB</maxFileSize>
+            <!-- 最多保留多少数量的归档文件，将会异步删除旧的文件。 -->
+            <maxHistory>30</maxHistory>
+            <!-- 所有归档文件总的大小。当达到这个大小后，旧的归档文件将会被异步的删除。 -->
+            <totalSizeCap>1000MB</totalSizeCap>
+        </rollingPolicy>
+
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} %-5level [%-10thread] %logger - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- 日志输出级别 -->
+    <root level="info">
+        <appender-ref ref="ROLLING" />
+        <appender-ref ref="STDOUT" />
+    </root>
+</configuration>

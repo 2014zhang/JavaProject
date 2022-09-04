@@ -1,0 +1,5 @@
+rem 文件需要用ANSI格式，UTF-8会乱码
+set figureBedPath=D:\\NoteBook\\docker学习\\image
+set toDeletePath=D:\\NoteBook\\docker学习\\toDelete
+set ScanningDrive=D:\\NoteBook\\docker学习
+java -classpath TyporaCleanPic-1.0-SNAPSHOT.jar com.study.PictureClear %figureBedPath% %toDeletePath% %ScanningDrive%
